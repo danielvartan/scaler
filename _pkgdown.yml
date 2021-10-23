@@ -1,0 +1,38 @@
+url: https://gipso.github.io/scaler/
+
+template:
+  params:
+    bootswatch: cosmo
+    ganalytics: G-K4V5BYSMNR
+    mathjax: true
+    noindex: false
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [github]
+  components:
+    home: ~
+    news: ~
+    articles: ~
+
+reference:
+- title: Scales
+  contents:
+  - dass
+  - psqi
+
+authors:
+  Daniel Vartanian:
+    href: https://github.com/danielvartan
+  Mario Pedrazzoli:
+    href: https://github.com/pedrazzo
+  Interdisciplinary Sleep Research Group (GIPSO):
+    href: http://each.usp.br/gipso
+  University of Sao Paulo (USP):
+    href: http://usp.br
+
+development:
+  mode: auto
+  destination: doc
+  version_label: warning

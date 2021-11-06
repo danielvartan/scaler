@@ -1,10 +1,10 @@
 Package: scaler
-Title: An R Package for Health Measurement Scales
+Title: Tools to Process Health Measurement Scales
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Daniel",
              family = "Vartanian",
-             role = c("aut", "cre", "cph"),
+             role = c("aut", "cph", "cre"),
              email = "danvartan@gmail.com",
              comment = c(ORCID = "0000-0001-7782-759X")),
       person(given = "Mario",
@@ -16,7 +16,6 @@ Authors@R:
              role = "fnd"),
       person(given = "University of Sao Paulo (USP)",
              role = "fnd"))
-Maintainer: Daniel Vartanian <danvartan@gmail.com>
 Description: A set of tools to deal with different health measurement 
      scales.
 License: MIT + file LICENSE
@@ -27,31 +26,29 @@ Depends:
     R (>= 4.0)
 Imports: 
     checkmate (>= 2.0.0),
-    cli (>= 3.0.1),
+    cli (>= 3.1.0),
     dplyr (>= 1.0.7),
     gutils,
     hms (>= 1.1.1),
     lifecycle (>= 1.0.1),
     lubridate (>= 1.8.0),
-    mctq
+    mctq (>= 0.1.0)
 Suggests: 
-    covr,
-    ggplot2,
-    knitr,
-    mockr,
-    readr,
-    rmarkdown,
-    spelling,
+    covr (>= 3.5.1),
+    ggplot2 (>= 3.3.5),
+    knitr (>= 1.36),
+    mockr (>= 0.1),
+    readr (>= 2.0.2),
+    rmarkdown (>= 2.11),
+    spelling (>= 2.2),
     testthat (>= 3.0.0)
 Remotes: 
-    github::gipso/gutils,
-    github::gipso/mctq
+    github::gipso/gutils
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-LazyDataCompression: bzip2
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

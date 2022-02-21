@@ -16,8 +16,7 @@ Authors@R:
              role = "fnd"),
       person(given = "University of Sao Paulo (USP)",
              role = "fnd"))
-Description: A set of tools to deal with different health measurement 
-     scales.
+Description: A set of tools to deal with health measurement scales.
 License: MIT + file LICENSE
 URL: https://gipso.github.io/scaler/, 
      https://github.com/gipso/scaler/

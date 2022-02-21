@@ -13,7 +13,7 @@ load_data <- function(orcid = NULL, email = NULL, col_names = FALSE,
                         col_names = col_names,
                         col_types = readr::cols(.default = "c"))
 
-    # if (isFALSE(col_names)) out <- out %>% dplyr::slice(-1)
+    if (isFALSE(col_names)) out <- out %>% dplyr::slice(-1)
     # if (!is.null(orcid)) out <- out %>% .filter_data(3, orcid)
     # if (!is.null(email)) out <- out %>% .filter_data(2, email)
 

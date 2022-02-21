@@ -4,11 +4,9 @@
 \name{scaler-package}
 \alias{scaler}
 \alias{scaler-package}
-\title{scaler: An R Package for Health Measurement Scales}
+\title{scaler: Tools to Process Health Measurement Scales}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
-
-A set of tools to deal with different health measurement scales.
+A set of tools to deal with health measurement scales.
 }
 \seealso{
 Useful links:

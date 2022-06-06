@@ -24,16 +24,13 @@ library(scaler)
 [![Codecov test coverage](https://codecov.io/gh/gipso/scaler/branch/main/graph/badge.svg)](https://codecov.io/gh/gipso/scaler?branch=main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://gipso.github.io/refstudio/CODE_OF_CONDUCT.html)
-[![Buy Me A Coffee donate button](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://ko-fi.com/danielvartan)
 <!-- badges: end -->
 
 ## Overview
 
-`scaler` is an R package that provides a set of tools to deal with health measurement scales. The aim of `scaler` is to facilitate the work of researchers while also helping with research reproducibility.
+`scaler` is an R package that provides a set of tools to deal with health measurement scales. The aim of `scaler` is to facilitate the work of researchers and help with research reproducibility.
 
 Some scales requires a dedicated package. If you're looking for tools to process the Munich ChronoType Questionnaire ([MCTQ](https://doi.org/10.1177/0748730402239679)), please check the [`mctq`](https://github.com/ropensci/mctq) package.
-
-> Please note that this package is currently on the development stage and have not yet been [peer reviewed](https://devguide.ropensci.org/softwarereviewintro.html).
 
 ## Prerequisites
 
@@ -43,7 +40,7 @@ In case you don't feel comfortable with R, we strongly recommend checking Hadley
 
 ## Installation
 
-You can install `scaler` from GitHub with:
+You can install the development version from GitHub with:
 
 ``` {r, eval = FALSE}
 # install.packages("remotes")

@@ -3,7 +3,6 @@ url: https://gipso.github.io/scaler/
 template:
   params:
     bootswatch: cosmo
-    ganalytics: G-K4V5BYSMNR
     mathjax: true
     noindex: false
 

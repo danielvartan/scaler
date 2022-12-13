@@ -1,5 +1,5 @@
-load_data <- function(orcid = NULL, email = NULL, col_names = FALSE,
-                       file = utils::choose.files()) {
+load_data <- function(orcid = NULL, email = NULL, col_names = TRUE,
+                      file = utils::choose.files()) {
     checkmate::assert_string(orcid,
                              "^[0-9X]{4}-[0-9X]{4}-[0-9X]{4}-[0-9X]{4}",
                              null.ok = TRUE)
@@ -14,19 +14,19 @@ load_data <- function(orcid = NULL, email = NULL, col_names = FALSE,
                         col_types = readr::cols(.default = "c"))
 
     if (isFALSE(col_names)) out <- out %>% dplyr::slice(-1)
-    # if (!is.null(orcid)) out <- out %>% .filter_data(3, orcid)
-    # if (!is.null(email)) out <- out %>% .filter_data(2, email)
+    if (!is.null(orcid)) out <- out %>% filter_data(3, orcid)
+    if (!is.null(email)) out <- out %>% filter_data(2, email)
 
     out
 }
 
-write_data <- function(data, filename, dir = utils::choose.dir()) {
+write_data <- function(data, dir = utils::choose.dir(), file_name) {
     checkmate::assert_tibble(data, min.rows = 1)
-    checkmate::assert_string(filename)
     checkmate::assert_directory_exists(dir)
+    checkmate::assert_string(file_name)
     gutils:::require_pkg("readr")
 
-    file <- normalizePath(file.path(dir, filename), mustWork = FALSE)
+    file <- normalizePath(file.path(dir, file_name), mustWork = FALSE)
 
     readr::write_csv(data, file)
 }

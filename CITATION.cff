@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.1
+# CITATION file created with {cffr} R package, v0.3.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -118,7 +118,8 @@ references:
   authors:
   - family-names: Müller
     given-names: Kirill
-    email: krlmlr+r@mailbox.org
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
   year: '2022'
   url: https://CRAN.R-project.org/package=hms
   version: '>= 1.1.1'
@@ -170,7 +171,7 @@ references:
     email: pedrazzo@usp.br
     orcid: https://orcid.org/0000-0002-5257-591X
   year: '2022'
-  version: '>= 0.1.0'
+  version: '>= 0.3.0'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'

@@ -7,6 +7,8 @@ tidy_sleep_diary <- function(data) {
 
     # file <- raw_data("sleep-diary", "subject_id_0.csv")
 
+    names(data) <- paste0("X", seq(ncol(data)))
+
     out <- data %>%
         dplyr::select(1, 8, 10, 17:26) %>%
         dplyr::rename_with(function(x) c("timestamp", "bed_time",
@@ -57,7 +59,7 @@ tidy_sleep_diary <- function(data) {
 
     for (i in naps) {
         nap <- out %>%
-            dplyr::select("timestamp", i) %>%
+            dplyr::select(dplyr::all_of(c("timestamp", i))) %>%
             dplyr::filter(!is.na(.data[[i[1]]]),
                           !is.na(.data[[i[2]]])) %>%
             dplyr::rename_with(function(x) c("timestamp", "bed_time",
@@ -74,11 +76,15 @@ tidy_sleep_diary <- function(data) {
     out
 }
 
-actstudio_sleep_diary <- function(data, file_name = NULL) {
+actstudio_sleep_diary <- function(data, dir = utils::choose.dir(),
+                                  file_name = NULL) {
     checkmate::assert_data_frame(data, min.rows = 1)
     checkmate::assert_subset(c("bed_time", "get_up_time"), names(data))
+    checkmate::assert_string(dir, null.ok = TRUE)
     checkmate::assert_string(file_name, null.ok = TRUE)
-    gutils:::require_pkg("readr")
+    gutils:::require_pkg("readr", "utils")
+
+    if (!is.null(dir)) checkmate::assert_directory_exists(dir)
 
     ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
     bed_time <- get_up_time <- NULL
@@ -89,8 +95,12 @@ actstudio_sleep_diary <- function(data, file_name = NULL) {
                       get_up_time = format(get_up_time, "%d/%m/%Y %T")) %>%
         dplyr::rename("BED TIME" = bed_time, "GET UP TIME" = get_up_time)
 
-    if (!is.null(file_name)) {
+    if (!is.null(file_name) && is.null(dir)) {
         file <- paste0("./inst/extdata/actigraphy/", file_name, ".txt")
+        readr::write_csv2(out, file, na = "")
+        invisible(out)
+    } else if (!is.null(file_name) && !is.null(dir)) {
+        file <- file.path(dir, file_name)
         readr::write_csv2(out, file, na = "")
         invisible(out)
     } else {

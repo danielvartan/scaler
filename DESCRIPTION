@@ -6,21 +6,12 @@ Authors@R:
              family = "Vartanian",
              role = c("aut", "cre", "ccp", "cph"),
              email = "danvartan@gmail.com",
-             comment = c(ORCID = "0000-0001-7782-759X")),
-      person(given = "Mario",
-             family = "Pedrazzoli",
-             email = "pedrazzo@usp.br",
-             role = c("aut", "sad"),
-             comment = c(ORCID = "0000-0002-5257-591X")),
-      person(given = "Interdisciplinary Sleep Research Group (GIPSO)",
-             role = "fnd"),
-      person(given = "University of Sao Paulo (USP)",
-             role = "fnd"))
+             comment = c(ORCID = "0000-0001-7782-759X")))
 Description: A set of tools to deal with health measurement scales.
 License: MIT + file LICENSE
-URL: https://gipso.github.io/scaler/, 
-     https://github.com/gipso/scaler/
-BugReports: https://github.com/gipso/scaler/issues/
+URL: https://giperbio.github.io/scaler/, 
+     https://github.com/giperbio/scaler/
+BugReports: https://github.com/giperbio/scaler/issues/
 Depends:
     R (>= 4.0)
 Imports: 
@@ -42,7 +33,7 @@ Suggests:
     spelling (>= 2.2),
     testthat (>= 3.0.0)
 Remotes: 
-    github::gipso/gutils
+    github::giperbio/gutils
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

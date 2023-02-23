@@ -20,15 +20,17 @@ mctq <- function(file = utils::choose.files()) {
         dplyr::slice(-1) %>%
         dplyr::select(1, 18:35, 106) %>%
         dplyr::rename_with(function(x) {
-            c("timestamp",
+            c(
+                "timestamp",
+                "work", "wd", "bt_w", "sprep_w", "slat_w", "se_w", "si_w",
+                "alarm_w", "wake_before_w", "le_w",
 
-              "work", "wd", "bt_w", "sprep_w", "slat_w", "se_w", "si_w",
-              "alarm_w", "wake_before_w", "le_w",
+                "bt_f", "sprep_f", "slat_f", "se_f", "si_f", "alarm_f",
+                "reasons_why_f", "le_f",
 
-              "bt_f", "sprep_f", "slat_f", "se_f", "si_f", "alarm_f",
-              "reasons_why_f", "le_f",
-
-              "cpf")}
+                "cpf"
+                )
+            }
             ) %>%
         dplyr::filter(!is.na(timestamp)) %>%
         dplyr::mutate(
@@ -45,8 +47,13 @@ mctq <- function(file = utils::choose.files()) {
                           ~ hms::parse_hms(.x)),
             dplyr::across(dplyr::matches("^slat_|^si_"),
                           ~ lubridate::dminutes(as.integer(.x))),
-            dplyr::across(dplyr::matches("^le_"), ~ lubridate::as.duration
-                          (hms::as_hms(lubridate::parse_date_time(.x, "HMS")))),
+            dplyr::across(dplyr::matches("^le_"),
+                          ~ lubridate::as.duration(
+                              hms::as_hms(
+                                  lubridate::parse_date_time(.x, "HMS")
+                                  )
+                              )
+                          ),
             dplyr::across(dplyr::matches("^work$|^alarm_|^wake_before_w$"),
                           ~ dplyr::case_when(
                               tolower(.x) == "sim" ~ TRUE,

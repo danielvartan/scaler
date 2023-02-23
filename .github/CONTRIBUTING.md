@@ -6,13 +6,13 @@ First of all, thanks for considering contributing to `scaler`! 👍 It's people 
 
 `scaler` is an open source project, maintained by people who care. We are not directly funded to do so.
 
-[repo]: https://github.com/gipso/scaler
-[issues]: https://github.com/gipso/scaler/issues
-[discussions]: https://github.com/gipso/scaler/discussions
-[new_issue]: https://github.com/gipso/scaler/issues/new
-[new_discussion]: https://github.com/gipso/scaler/discussions/new
-[website]: https://gipso.github.io/scaler
-[citation]: https://gipso.github.io/scaler/authors.html
+[repo]: https://github.com/giperbio/scaler
+[issues]: https://github.com/giperbio/scaler/issues
+[discussions]: https://github.com/giperbio/scaler/discussions
+[new_issue]: https://github.com/giperbio/scaler/issues/new
+[new_discussion]: https://github.com/giperbio/scaler/discussions/new
+[website]: https://giperbio.github.io/scaler
+[citation]: https://giperbio.github.io/scaler/authors.html
 [email]: mailto:danvartan@gmail.com
 
 ## Code of conduct

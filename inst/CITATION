@@ -1,20 +1,32 @@
-citHeader("To cite {scaler} in publications use:")
-
-citEntry(
-  entry       = "Unpublished",
-  title       = paste0("{scaler}:", " ",
-                       "an R package for health measurement scales"),
-  author      = personList(as.person("Daniel Vartanian"),
-                           as.person("Mario Pedrazzoli")),
-  year        = "2022",
-  url         = paste0("https://gipso.github.io/",
-                       "scaler/"),
-  textVersion = paste0("Vartanian, D.", ", & ",
-                       "Pedrazzoli, M.", " ",
-                       "(2022)",  ". ",
-                       "{scaler}:", " ",
-                       "an R package for health measurement scales", ". ",
-                       "https://gipso.github.io/",
-                       "scaler/"),
-  note        = "Lifecycle: experimental"
-)
+utils::bibentry(
+    header = "To cite {scaler} in publications use:",
+    bibtype  = "Unpublished",
+    title = paste0(
+        "{scaler}:", " ",
+        "tools to process health measurement scales"
+        ),
+    author = c(
+        utils::person(
+            given = "Daniel",
+            family = "Vartanian",
+            role = c("aut", "cre", "ccp", "cph"),
+            email = "danvartan@gmail.com",
+            comment = c(ORCID = "0000-0001-7782-759X")
+            )
+        ),
+    year = "2023",
+    url = paste0(
+        "https://giperbio.github.io/",
+        "scaler/"
+        ),
+    note = "R package version 0.0.0.9000",
+    textVersion = paste0(
+        "Vartanian, D.", " ",
+        "(2023)",  ". ",
+        "{scaler}:", " ",
+        "tools to process health measurement scales", ". ",
+        "R package version 0.0.0.9000", ". ",
+        "https://giperbio.github.io/",
+        "scaler/"
+        )
+    )

@@ -22,13 +22,15 @@ tidy_psqi <- function(file = utils::choose.files()) {
                         progress = FALSE) %>%
         dplyr::slice(-1) %>%
         dplyr::select(1, 21:46, 78) %>%
-        dplyr::rename_with(function(x) c("timestamp", "v1", "v2", "v3", "v4",
-                                         "v5_a", "v5_b", "v5_c", "v5_d",
-                                         "v5_e", "v5_f","v5_g", "v5_h", "v5_i",
-                                         "v5_j_other", "v5_j", "v6", "v7",
-                                         "v8", "v9", "v10", "v10_a", "v10_b",
-                                         "v10_c", "v10_d", "v10_e_other",
-                                         "v10_e", "cpf")) %>%
+        dplyr::rename_with(function(x) {
+            c(
+                "timestamp", "v1", "v2", "v3", "v4", "v5_a", "v5_b", "v5_c",
+                "v5_d", "v5_e", "v5_f", "v5_g", "v5_h", "v5_i", "v5_j_other",
+                "v5_j", "v6", "v7", "v8", "v9", "v10", "v10_a", "v10_b",
+                "v10_c", "v10_d", "v10_e_other", "v10_e", "cpf"
+                )
+            }
+            ) %>%
         dplyr::filter(!is.na(timestamp)) %>%
         dplyr::mutate(
             timestamp = lubridate::dmy_hms(timestamp),
@@ -65,18 +67,27 @@ tidy_psqi <- function(file = utils::choose.files()) {
                 TRUE ~ as.character(NA))) %>%
         dplyr::mutate(dplyr::across(
             dplyr::matches("^v[0-9]+_[a-z]$|^v[7-8]$"),
-            function(x) factor(dplyr::case_when(
-                x == "Nenhuma no \u00faltimo m\u00eas" ~
-                    "Not during the past month",
-                x == "Menos de 1 vez/semana" ~ "Less than once a week",
-                x == "1 ou 2 vezes/semana" ~ "Once or twice a week",
-                x == "3 ou mais vezes/semana" ~ "Three or more times a week",
-                TRUE ~ as.character(NA)),
-                levels = c("Not during the past month",
-                           "Less than once a week",
-                           "Once or twice a week",
-                           "Three or more times a week"),
-                ordered = TRUE))) %>%
+            function(x) {
+                dplyr::case_when(
+                    x == "Nenhuma no \u00faltimo m\u00eas" ~
+                        "Not during the past month",
+                    x == "Menos de 1 vez/semana" ~ "Less than once a week",
+                    x == "1 ou 2 vezes/semana" ~ "Once or twice a week",
+                    x == "3 ou mais vezes/semana" ~
+                        "Three or more times a week",
+                    TRUE ~ as.character(NA)
+                    ) %>%
+                    factor(
+                        levels = c(
+                            "Not during the past month",
+                            "Less than once a week",
+                            "Once or twice a week",
+                            "Three or more times a week"
+                            ),
+                        ordered = TRUE
+                        )
+                }
+            )) %>%
         dplyr::relocate(cpf, .after = timestamp) %>%
         dplyr::arrange(timestamp)
 }

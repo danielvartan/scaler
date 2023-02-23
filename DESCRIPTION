@@ -1,39 +1,44 @@
 Package: scaler
 Title: Tools to Process Health Measurement Scales
 Version: 0.0.0.9000
-Authors@R: 
-    c(person(given = "Daniel",
-             family = "Vartanian",
-             role = c("aut", "cre", "ccp", "cph"),
-             email = "danvartan@gmail.com",
-             comment = c(ORCID = "0000-0001-7782-759X")))
-Description: A set of tools to deal with health measurement scales.
+Authors@R: c(
+        person(
+            given = "Daniel",
+            family = "Vartanian",
+            role = c("aut", "cre", "ccp", "cph"),
+            email = "danvartan@gmail.com",
+            comment = c(ORCID = "0000-0001-7782-759X")
+            )
+        )
+Description: A set of tools to process health measurement scales.
 License: MIT + file LICENSE
 URL: https://giperbio.github.io/scaler/, 
-     https://github.com/giperbio/scaler/
+    https://github.com/giperbio/scaler/
 BugReports: https://github.com/giperbio/scaler/issues/
 Depends:
-    R (>= 4.0)
+    R (>= 4.1)
 Imports: 
-    checkmate (>= 2.0.0),
-    cli (>= 3.1.0),
-    dplyr (>= 1.0.7),
+    checkmate (>= 2.1.0),
+    cli (>= 3.6.0),
+    dplyr (>= 1.1.0),
+    ggplot2 (>= 3.4.1),
     gutils,
-    hms (>= 1.1.1),
-    lifecycle (>= 1.0.1),
-    lubridate (>= 1.8.0),
-    mctq (>= 0.3.0)
+    hms (>= 1.1.2),
+    lifecycle (>= 1.0.3),
+    lubridate (>= 1.9.2),
+    lubritime,
+    mctq (>= 0.3.2)
 Suggests: 
-    covr (>= 3.5.1),
-    ggplot2 (>= 3.3.5),
-    knitr (>= 1.36),
-    mockr (>= 0.1),
-    readr (>= 2.0.2),
-    rmarkdown (>= 2.11),
+    covr (>= 3.6.1),
+    knitr (>= 1.42),
+    mockr (>= 0.2.1),
+    readr (>= 2.1.4),
+    rmarkdown (>= 2.20),
     spelling (>= 2.2),
-    testthat (>= 3.0.0)
+    testthat (>= 3.1.6)
 Remotes: 
-    github::giperbio/gutils
+    github::giperbio/gutils,
+    github::giperbio/lubritime
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
@@ -41,4 +46,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3

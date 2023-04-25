@@ -26,6 +26,12 @@ reference:
   - dass
   - psqi
 
+- title: Utilities
+  desc: >
+    Other functions to help with data wrangling.
+  contents:
+  - age
+
 authors:
   Daniel Vartanian:
     href: https://github.com/danielvartan

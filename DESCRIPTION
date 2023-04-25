@@ -16,7 +16,7 @@ URL: https://giperbio.github.io/scaler/,
     https://github.com/giperbio/scaler/
 BugReports: https://github.com/giperbio/scaler/issues/
 Depends:
-    R (>= 4.1)
+    R (>= 4.2)
 Imports: 
     checkmate (>= 2.1.0),
     cli (>= 3.6.0),

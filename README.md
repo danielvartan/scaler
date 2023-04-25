@@ -56,11 +56,10 @@ remotes::install_github("giperbio/scaler")
 
 If you use `scaler` in your research, please consider citing it. We put
 a lot of work to build and maintain a free and open-source R package.
-You can find the `scaler` citation below.
+You can find the citation below.
 
 ``` r
 citation("scaler")
-#> 
 #> To cite {scaler} in publications use:
 #> 
 #>   Vartanian, D. (2023). {scaler}: tools to process health measurement

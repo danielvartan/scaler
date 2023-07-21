@@ -11,7 +11,7 @@
 #'   [`POSIXt`][base::POSIXct()] object indicating a reference date
 #'   (default: `base::Sys.Date()`).
 #' @param round (optional) a [`logical`][logical()] value indicating if the
-#'  the funtion must return a rounded year age.
+#'  the function must return a rounded year age.
 #'
 #' @return A [`numeric`][base::numeric()] object with a year age.
 #' @family utility functions
@@ -47,32 +47,32 @@
 #' age(birth_date, reference_date)
 #' #> [1] 100.00000 100.00000  19.99722 # Expected
 age <- function(birth_date, reference_date = base::Sys.Date(), round = FALSE) {
-    checkmate::assert_date(birth_date)
-    checkmate::assert_multi_class(reference_date, c("Date", "POSIXt"))
-    checkmate::assert_logical(round, len = 1)
+  checkmate::assert_date(birth_date)
+  checkmate::assert_multi_class(reference_date, c("Date", "POSIXt"))
+  checkmate::assert_flag(round)
 
-    if (!(length(reference_date) == 1) &&
-        !(length(birth_date) == length(reference_date))) {
-        cli::cli_abort(paste0(
-            "{.strong {cli::col_red('reference_date')}} must have ",
-            "length {.strong 1} or the same lenght as ",
-            "{.strong {cli::col_red('birth_date')}}."
-        ))
-    }
+  if (!(length(reference_date) == 1) &&
+      !(length(birth_date) == length(reference_date))) {
+    cli::cli_abort(paste0(
+      "{.strong {cli::col_red('reference_date')}} must have ",
+      "length {.strong 1} or the same lenght as ",
+      "{.strong {cli::col_red('birth_date')}}."
+    ))
+  }
 
-    reference_date <- lubridate::as_date(reference_date)
+  reference_date <- lubridate::as_date(reference_date)
 
-    out <- lubridate::interval(birth_date, reference_date,
-                               tz = "America/Sao_Paulo") %>%
-        lubridate::as.period()
+  out <- lubridate::interval(birth_date, reference_date,
+                             tz = "America/Sao_Paulo") %>%
+    lubridate::as.period()
 
-    if (isFALSE(round)) {
-        years <- lubridate::year(out)
-        months <- lubridate::month(out) / 12
-        days <- lubridate::day(out) / 30 / 12
+  if (isFALSE(round)) {
+    years <- lubridate::year(out)
+    months <- lubridate::month(out) / 12
+    days <- lubridate::day(out) / 30 / 12
 
-        years + months + days
-    } else {
-        lubridate::year(out)
-    }
+    years + months + days
+  } else {
+    lubridate::year(out)
+  }
 }

@@ -4,11 +4,11 @@
 #'
 #' @export
 dass <- function() {
-    invisible(NULL)
+  invisible(NULL)
 }
 
 #' @rdname dass
 #' @export
 dass_21 <- function() {
-    invisible(NULL)
+  invisible(NULL)
 }

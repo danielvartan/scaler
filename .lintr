@@ -1,9 +1,10 @@
 linters: linters_with_defaults(
-    commented_code_linter = NULL,
-    cyclocomp_linter = cyclocomp_linter(25),
-    line_length_linter = line_length_linter(80)
-  )
+  commented_code_linter = NULL,
+  cyclocomp_linter = cyclocomp_linter(25),
+  indentation_linter = NULL,
+  line_length_linter = line_length_linter(80)
+)
 exclusions: list(
-    "R/utils-checks.R",
-    "R/utils-mocks.R"
-  )
+  "R/utils-checks.R",
+  "R/utils-mocks.R"
+)

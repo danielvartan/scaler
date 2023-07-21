@@ -14,7 +14,7 @@ age(birth_date, reference_date = base::Sys.Date(), round = FALSE)
 (default: \code{base::Sys.Date()}).}
 
 \item{round}{(optional) a \code{\link[=logical]{logical}} value indicating if the
-the funtion must return a rounded year age.}
+the function must return a rounded year age.}
 }
 \value{
 A \code{\link[base:numeric]{numeric}} object with a year age.

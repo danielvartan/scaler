@@ -23,7 +23,9 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
       "([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$"
     ))
   checkmate::assert_character(
-    data[[col_indexes[2]]], pattern = "^Dia de trabalho$|^Dia livre$"
+    data[[col_indexes[2]]], pattern = paste0(
+      "^Dia de trabalho$|^Dia livre$|^Dia de descanso$"
+    )
   )
 
   for (i in col_indexes[-c(1, 2)]) {
@@ -35,7 +37,7 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
 
   ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
   timestamp <- type_of_day <- sprep_time <- sprep_date <- se_time <- NULL
-  se_date <- int <- sprep <- se <- subjective_date <- NULL
+  se_date <- int <- sprep <- se <- subjective_day <- NULL
 
   out <- data |>
     dplyr::select(dplyr::all_of(col_indexes)) |>
@@ -45,8 +47,12 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
     tidyr::drop_na() |>
     dplyr::mutate(
       timestamp = lubridate::dmy_hms(timestamp),
+      type_of_day = dplyr::case_when(
+        type_of_day == "Dia livre" ~ "Dia de descanso",
+        TRUE ~ type_of_day
+      ),
       type_of_day = factor(
-        type_of_day, levels = c("Dia de trabalho", "Dia livre"),
+        type_of_day, levels = c("Dia de trabalho", "Dia de descanso"),
         ordered = FALSE
         ),
       sprep_time = hms::parse_hms(sprep_time),
@@ -70,7 +76,7 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
         ),
       sprep = lubridate::as_datetime(paste(sprep_date, sprep_time)),
       se = lubridate::as_datetime(paste(se_date, se_time)),
-      subjective_date = dplyr::case_when(
+      subjective_day = dplyr::case_when(
         (lubridate::date(timestamp) == sprep_date) &
           (sprep_time < hms::parse_hm("12:00")) ~
           lubridate::date(timestamp) - lubridate::days(1),
@@ -82,11 +88,11 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
     ) |>
     dplyr::filter(!(se - sprep) > lubridate::dhours(18)) |>
     dplyr::filter(
-      !(duplicated(subjective_date) |
-          duplicated(subjective_date, fromLast = TRUE))
+      !(duplicated(subjective_day) |
+          duplicated(subjective_day, fromLast = TRUE))
       ) |>
-    dplyr::arrange(subjective_date) |>
-    dplyr::select(subjective_date, type_of_day)
+    dplyr::arrange(subjective_day) |>
+    dplyr::select(subjective_day, type_of_day)
 
   invisible(out)
 }
@@ -196,7 +202,7 @@ actstudio_sleep_diary <- function(data, file) {
   checkmate::assert_data_frame(data, min.rows = 1)
   checkmate::assert_subset(c("sprep", "se"), names(data))
   checkmate::assert_string(file)
-  gutils:::require_pkg("readr", "utils")
+  rutils:::require_pkg("readr", "utils")
 
   ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
   sprep <- se <- NULL
@@ -217,7 +223,7 @@ actstudio_sleep_diary <- function(data, file) {
 sleep_quality <- function(data, col_index = 14) {
   checkmate::assert_tibble(data, min.rows = 1)
   checkmate::assert_integerish(col_index, len = 1)
-  gutils:::require_pkg("ggplot2")
+  rutils:::require_pkg("ggplot2")
 
   # R CMD Check variable bindings fix (see: http://bit.ly/3bliuam) -----
   # nolint start: object_usage_linter.

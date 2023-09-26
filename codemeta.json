@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.0 (2023-04-21 ucrt)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -146,7 +146,7 @@
       "@type": "SoftwareApplication",
       "identifier": "checkmate",
       "name": "checkmate",
-      "version": ">= 2.1.0",
+      "version": ">= 2.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -159,7 +159,7 @@
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
-      "version": ">= 3.6.0",
+      "version": ">= 3.6.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -172,7 +172,7 @@
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
-      "version": ">= 1.1.0",
+      "version": ">= 1.1.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -185,7 +185,7 @@
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
-      "version": ">= 3.4.1",
+      "version": ">= 3.4.2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -196,15 +196,9 @@
     },
     "6": {
       "@type": "SoftwareApplication",
-      "identifier": "gutils",
-      "name": "gutils",
-      "sameAs": "https://github.com/giperbio/gutils"
-    },
-    "7": {
-      "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
-      "version": ">= 1.1.2",
+      "version": ">= 1.1.3",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -213,7 +207,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -226,7 +220,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "9": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -239,13 +233,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "10": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "lubritime",
       "name": "lubritime",
-      "sameAs": "https://github.com/giperbio/lubritime"
+      "sameAs": "https://github.com/danielvartan/lubritime"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "mctq",
       "name": "mctq",
@@ -258,9 +252,28 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=mctq"
     },
+    "11": {
+      "@type": "SoftwareApplication",
+      "identifier": "rutils",
+      "name": "rutils",
+      "sameAs": "https://github.com/danielvartan/rutils"
+    },
+    "12": {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyr",
+      "name": "tidyr",
+      "version": ">= 1.3.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyr"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "41.107KB",
+  "fileSize": "40.984KB",
   "citation": [
     {
       "@type": "CreativeWork",
@@ -280,7 +293,7 @@
     }
   ],
   "releaseNotes": "https://github.com/giperbio/scaler/blob/master/NEWS.md",
-  "readme": "https://github.com/giperbio/scaler/blob/main/README.md",
+  "readme": "https://github.com/danielvartan/scaler/blob/main/README.md",
   "contIntegration": ["https://github.com/giperbio/scaler/actions", "https://codecov.io/gh/giperbio/scaler?branch=main"],
   "developmentStatus": ["https://www.repostatus.org/#wip", "https://lifecycle.r-lib.org/articles/stages.html#experimental"],
   "keywords": ["r-package", "scales", "health", "r", "rstats"]

@@ -22,12 +22,12 @@ Imports:
     cli (>= 3.6.1),
     dplyr (>= 1.1.2),
     ggplot2 (>= 3.4.2),
-    gutils,
     hms (>= 1.1.3),
     lifecycle (>= 1.0.3),
     lubridate (>= 1.9.2),
     lubritime,
     mctq (>= 0.3.2),
+    rutils,
     tidyr (>= 1.3.0)
 Suggests: 
     covr (>= 3.6.1),
@@ -38,8 +38,8 @@ Suggests:
     spelling (>= 2.2),
     testthat (>= 3.1.6)
 Remotes: 
-    github::giperbio/gutils,
-    github::giperbio/lubritime
+    github::danielvartan/rutils,
+    github::danielvartan/lubritime
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

@@ -1,3 +1,6 @@
+# https://iris.who.int/handle/10665/42330
+# https://doi.org/10.1016/S0140-6736(03)15268-3
+
 bmi <- function(weight, height, number = TRUE, cat = FALSE) {
   checkmate::assert_number(weight, lower = 20)
   checkmate::assert_number(height, lower = 0.5, upper = 3)
@@ -28,7 +31,7 @@ bmi <- function(weight, height, number = TRUE, cat = FALSE) {
     } else if (bmi_number >= 18.5 && bmi_number < 25) {
       bmi_cat <- "Normal"
     } else if (bmi_number >= 25 && bmi_number < 30) {
-      bmi_cat <- "Overweight"
+      bmi_cat <- "Preobese"
     } else if (bmi_number >= 30 && bmi_number < 35) {
       bmi_cat <- "Obesity class 1"
     } else if (bmi_number >= 35 && bmi_number < 40) {

@@ -49,20 +49,6 @@ references:
   year: '2024'
   version: '>= 4.2'
 - type: software
-  title: checkmate
-  abstract: 'checkmate: Fast and Versatile Argument Checks'
-  notes: Imports
-  url: https://mllg.github.io/checkmate/
-  repository: https://CRAN.R-project.org/package=checkmate
-  authors:
-  - family-names: Lang
-    given-names: Michel
-    email: michellang@gmail.com
-    orcid: https://orcid.org/0000-0001-9754-0393
-  year: '2024'
-  doi: 10.32614/CRAN.package.checkmate
-  version: '>= 2.3.2'
-- type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
   notes: Imports
@@ -244,6 +230,43 @@ references:
   year: '2024'
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.3.1'
+- type: software
+  title: tsibble
+  abstract: 'tsibble: Tidy Temporal Data Frames and Tools'
+  notes: Imports
+  url: https://tsibble.tidyverts.org
+  repository: https://CRAN.R-project.org/package=tsibble
+  authors:
+  - family-names: Wang
+    given-names: Earo
+    email: earo.wang@gmail.com
+    orcid: https://orcid.org/0000-0001-6448-5260
+  - family-names: Cook
+    given-names: Di
+    orcid: https://orcid.org/0000-0002-3813-7155
+  - family-names: Hyndman
+    given-names: Rob
+    orcid: https://orcid.org/0000-0002-2140-5352
+  - family-names: O'Hara-Wild
+    given-names: Mitchell
+    orcid: https://orcid.org/0000-0001-6729-7695
+  year: '2024'
+  doi: 10.32614/CRAN.package.tsibble
+  version: '>= 1.1.5'
+- type: software
+  title: checkmate
+  abstract: 'checkmate: Fast and Versatile Argument Checks'
+  notes: Suggests
+  url: https://mllg.github.io/checkmate/
+  repository: https://CRAN.R-project.org/package=checkmate
+  authors:
+  - family-names: Lang
+    given-names: Michel
+    email: michellang@gmail.com
+    orcid: https://orcid.org/0000-0001-9754-0393
+  year: '2024'
+  doi: 10.32614/CRAN.package.checkmate
+  version: '>= 2.3.2'
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'

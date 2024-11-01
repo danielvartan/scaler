@@ -45,6 +45,19 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "checkmate",
+      "name": "checkmate",
+      "version": ">= 2.3.2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=checkmate"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "covr",
       "name": "covr",
       "version": ">= 3.6.4",
@@ -144,19 +157,6 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "checkmate",
-      "name": "checkmate",
-      "version": ">= 2.3.2",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=checkmate"
-    },
-    "3": {
-      "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
       "version": ">= 3.6.3",
@@ -168,7 +168,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cli"
     },
-    "4": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -181,7 +181,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "5": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -194,7 +194,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    "6": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "hms",
       "name": "hms",
@@ -207,7 +207,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=hms"
     },
-    "7": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -220,7 +220,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -233,13 +233,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    "9": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "lubritime",
       "name": "lubritime",
       "sameAs": "https://github.com/danielvartan/lubritime"
     },
-    "10": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "mctq",
       "name": "mctq",
@@ -252,13 +252,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=mctq"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "rutils",
       "name": "rutils",
       "sameAs": "https://github.com/danielvartan/rutils"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -271,9 +271,22 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     },
+    "12": {
+      "@type": "SoftwareApplication",
+      "identifier": "tsibble",
+      "name": "tsibble",
+      "version": ">= 1.1.5",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tsibble"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "40.853KB",
+  "fileSize": "39.751KB",
   "citation": [
     {
       "@type": "CreativeWork",

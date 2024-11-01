@@ -8,6 +8,7 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
     unique = TRUE,
     any.missing = FALSE
   )
+
   prettycheck:::assert_character(
     data[[col_indexes[1]]],
     pattern = paste0(

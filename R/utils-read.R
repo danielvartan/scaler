@@ -1,8 +1,8 @@
 filter_data <- function(data, col_index, values) {
-  checkmate::assert_tibble(data, min.rows = 1)
-  checkmate::assert_integerish(col_index)
-  checkmate::assert_choice(col_index, seq_len(ncol(data)))
-  checkmate::assert_character(values, min.len = 1)
+  prettycheck:::assert_tibble(data, min.rows = 1)
+  prettycheck:::assert_integerish(col_index)
+  prettycheck:::assert_choice(col_index, seq_len(ncol(data)))
+  prettycheck:::assert_character(values, min.len = 1)
 
   ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
   . <- .data <- NULL

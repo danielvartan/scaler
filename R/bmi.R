@@ -2,10 +2,10 @@
 # https://doi.org/10.1016/S0140-6736(03)15268-3
 
 bmi <- function(weight, height, number = TRUE, cat = FALSE) {
-  checkmate::assert_number(weight, lower = 20)
-  checkmate::assert_number(height, lower = 0.5, upper = 3)
-  checkmate::assert_flag(number)
-  checkmate::assert_flag(cat)
+  prettycheck:::assert_number(weight, lower = 20)
+  prettycheck:::assert_number(height, lower = 0.5, upper = 3)
+  prettycheck:::assert_flag(number)
+  prettycheck:::assert_flag(cat)
 
   if (isFALSE(number) && isFALSE(cat)) {
     cli::cli_abort(paste0(

@@ -11,9 +11,9 @@ A set of tools to process health measurement scales.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://giperbio.github.io/scaler/}
-  \item \url{https://github.com/giperbio/scaler/}
-  \item Report bugs at \url{https://github.com/giperbio/scaler/issues/}
+  \item \url{https://danielvartan.github.io/scaler/}
+  \item \url{https://github.com/danielvartan/scaler/}
+  \item Report bugs at \url{https://github.com/danielvartan/scaler/issues/}
 }
 
 }

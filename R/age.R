@@ -47,9 +47,9 @@
 #' age(birth_date, reference_date)
 #' #> [1] 100.00000 100.00000  19.99722 # Expected
 age <- function(birth_date, reference_date = base::Sys.Date(), round = FALSE) {
-  checkmate::assert_date(birth_date)
-  checkmate::assert_multi_class(reference_date, c("Date", "POSIXt"))
-  checkmate::assert_flag(round)
+  prettycheck:::assert_date(birth_date)
+  prettycheck:::assert_multi_class(reference_date, c("Date", "POSIXt"))
+  prettycheck:::assert_flag(round)
 
   if (!(length(reference_date) == 1) &&
       !(length(birth_date) == length(reference_date))) {

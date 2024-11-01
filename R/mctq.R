@@ -1,5 +1,5 @@
 mctq <- function(file = utils::choose.files()) {
-  checkmate::assert_file_exists(file)
+  prettycheck:::assert_file_exists(file)
 
   # R CMD Check variable bindings fix (see: http://bit.ly/3bliuam) -----
 

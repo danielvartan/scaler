@@ -1,6 +1,8 @@
 ^\.github$
 ^\.lintr$
+^\.quarto$
 ^\.Rproj\.user$
+^_quarto\.yml$
 ^_pkgdown\.yml$
 ^analysis$
 ^CITATION\.cff$
@@ -14,5 +16,5 @@
 ^man-roxygen$
 ^Meta$
 ^pkgdown$
-^README\.Rmd$
+^README\.qmd$
 ^scaler\.Rproj$

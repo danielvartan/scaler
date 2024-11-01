@@ -1,22 +1,18 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # scaler
 
 <!-- badges: start -->
-
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/giperbio/scaler/workflows/R-CMD-check/badge.svg)](https://github.com/giperbio/scaler/actions)
+[![R-CMD-check.yaml](https://github.com/danielvartan/scaler/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/danielvartan/scaler/actions/workflows/check-standard.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/giperbio/scaler/branch/main/graph/badge.svg)](https://codecov.io/gh/giperbio/scaler?branch=main)
+coverage](https://codecov.io/gh/danielvartan/scaler/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danielvartan/scaler?branch=main)
 [![License:
-MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
+MIT](https://img.shields.io/badge/license-MIT-green.png)](https://choosealicense.com/licenses/mit/)
 [![Contributor
-Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://giperbio.github.io/scaler/CODE_OF_CONDUCT.html)
+Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 <!-- badges: end -->
 
 ## Overview
@@ -31,25 +27,13 @@ process the Munich ChronoType Questionnaire
 ([MCTQ](https://doi.org/10.1177/0748730402239679)), please check the
 [`mctq`](https://github.com/ropensci/mctq) package.
 
-## Prerequisites
-
-You need to have some familiarity with the [R programming
-language](https://www.r-project.org/) to use `scaler` main functions.
-
-If you don’t feel comfortable with R, we strongly recommend checking
-Hadley Wickham and Garrett Grolemund’s free and online book [R for Data
-Science](https://r4ds.had.co.nz/) and the Coursera course from John
-Hopkins University [Data Science: Foundations using
-R](https://www.coursera.org/specializations/data-science-foundations-r)
-(free for audit students).
-
 ## Installation
 
-You can install `scaler` with:
+You can install `scaler` using the
+[`remotes`](https://github.com/r-lib/remotes) package:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("giperbio/scaler")
+remotes::install_github("danielvartan/scaler")
 ```
 
 ## Citation
@@ -60,29 +44,36 @@ You can find the citation below.
 
 ``` r
 citation("scaler")
-#> To cite {scaler} in publications use:
-#> 
-#>   Vartanian, D. (2023). {scaler}: tools to process health measurement
-#>   scales. R package version 0.0.0.9000.
-#>   https://giperbio.github.io/scaler/
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Unpublished{,
-#>     title = {{scaler}: tools to process health measurement scales},
-#>     author = {Daniel Vartanian},
-#>     year = {2023},
-#>     url = {https://giperbio.github.io/scaler/},
-#>     note = {R package version 0.0.0.9000},
-#>   }
 ```
+
+    To cite {scaler} in publications use:
+
+      Vartanian, D. (2023). {scaler}: tools to process health measurement
+      scales. R package. https://danielvartan.github.io/scaler/
+
+    A BibTeX entry for LaTeX users is
+
+      @Unpublished{,
+        title = {{scaler}: tools to process health measurement scales},
+        author = {Daniel Vartanian},
+        year = {2024},
+        url = {https://danielvartan.github.io/scaler/},
+        note = {R package},
+      }
 
 ## Contributing
 
-We welcome contributions, including bug reports.
+We welcome contributions, including bug reports. Take a moment to review
+our [Guidelines for
+Contributing](https://danielvartan.github.io/scaler/CONTRIBUTING.html).
 
-Take a moment to review our [Guidelines for
-Contributing](https://giperbio.github.io/scaler/CONTRIBUTING.html).
+## License
+
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-green.png)](https://opensource.org/license/mit/)
+
+`scaler` code is released under the [MIT
+license](https://opensource.org/license/mit/).
 
 <br>
 

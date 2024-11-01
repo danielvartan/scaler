@@ -1,45 +1,41 @@
-## ## "0000-0000-0000-0000" (ORCID) or CPF "00000000000"
-# filter_value <- "00000000000"
-# file_sleep_diary <- file.path(
-#   normalizePath(readClipboard(), "/",mustWork = FALSE), "raw.csv"
-# )
-# raw_data_sleep_diary <-
-#   file_sleep_diary |>
-#   readr::read_csv(
-#     na = c("", "NA"), col_types = readr::cols(.default = "c")
-#     ) |>
-#   scaler:::filter_data(col_index = 3, value = filter_value)
-
-## Actschool: col_indexes = c(1, 4, 8, 10)
 get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
-  checkmate::assert_tibble(data, min.rows = 1)
-  checkmate::assert_integerish(
-    col_indexes, lower = 1, len = 4, unique = TRUE, any.missing = FALSE
+  prettycheck:::assert_tibble(data, min.rows = 1)
+
+  prettycheck:::assert_integerish(
+    col_indexes,
+    lower = 1,
+    len = 4,
+    unique = TRUE,
+    any.missing = FALSE
   )
-  checkmate::assert_character(
+  prettycheck:::assert_character(
     data[[col_indexes[1]]],
     pattern = paste0(
       "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}", " ",
       "([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$"
     ))
-  checkmate::assert_character(
+
+  prettycheck:::assert_character(
     data[[col_indexes[2]]], pattern = paste0(
       "^Dia de trabalho$|^Dia livre$|^Dia de descanso$"
     )
   )
 
   for (i in col_indexes[-c(1, 2)]) {
-    checkmate::assert_character(
+    prettycheck:::assert_character(
       data[[i]],
       pattern = "^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$"
     )
   }
 
-  ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
+  # R CMD Check variable bindings fix (see: https://bit.ly/3z24hbU)
+  # nolint start: object_usage_linter.
   timestamp <- type_of_day <- sprep_time <- sprep_date <- se_time <- NULL
   se_date <- int <- sprep <- se <- subjective_day <- NULL
+  # nolint end
 
-  out <- data |>
+  out <-
+    data |>
     dplyr::select(dplyr::all_of(col_indexes)) |>
     dplyr::rename_with(
       function(x) c("timestamp", "type_of_day", "sprep_time", "se_time")
@@ -54,7 +50,7 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
       type_of_day = factor(
         type_of_day, levels = c("Dia de trabalho", "Dia de descanso"),
         ordered = FALSE
-        ),
+      ),
       sprep_time = hms::parse_hms(sprep_time),
       se_time = hms::parse_hms(se_time)
     ) |>
@@ -67,13 +63,13 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
         hms::as_hms(timestamp) > se_time,
         lubridate::date(timestamp),
         lubridate::date(timestamp) - lubridate::days(1)
-        ),
+      ),
       int = lubritime::assign_date(sprep_time, se_time),
       sprep_date = dplyr::if_else(
         lubridate::day(lubridate::int_end(int)) == 1,
         se_date,
         se_date - lubridate::days(1)
-        ),
+      ),
       sprep = lubridate::as_datetime(paste(sprep_date, sprep_time)),
       se = lubridate::as_datetime(paste(se_date, se_time)),
       subjective_day = dplyr::case_when(
@@ -90,25 +86,24 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
     dplyr::filter(
       !(duplicated(subjective_day) |
           duplicated(subjective_day, fromLast = TRUE))
-      ) |>
+    ) |>
     dplyr::arrange(subjective_day) |>
-    dplyr::select(subjective_day, type_of_day)
+    dplyr::select(subjective_day, type_of_day) |>
+    tsibble::as_tsibble(
+      index = "subjective_day",
+      regular = TRUE
+    ) |>
+    tsibble::fill_gaps()
 
   invisible(out)
 }
 
-## Col order: timestamp, sleep_prep_time, sleep_se_time, nap_1_sprep_time,
-##            nap_1_se_time, nap_2_sprep_time, nap_2_se_time, nap_3_sprep_time,
-##            nap_3_se_time, nap_4_sprep_time, nap_4_se_time, nap_5_sprep_time,
-##            nap_5_se_time
-##
-## Actschool: col_indexes = c(1, 8, 10, 17:26)
 tidy_sleep_diary <- function(data, col_indexes = c(1, 8, 10, 17:26)) {
-  checkmate::assert_tibble(data, min.rows = 1)
-  checkmate::assert_integerish(
+  prettycheck:::assert_tibble(data, min.rows = 1)
+  prettycheck:::assert_integerish(
     col_indexes, lower = 1, len = 13, unique = TRUE, any.missing = FALSE
   )
-  checkmate::assert_character(
+  prettycheck:::assert_character(
     data[[col_indexes[1]]],
     pattern = paste0(
       "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}", " ",
@@ -116,7 +111,7 @@ tidy_sleep_diary <- function(data, col_indexes = c(1, 8, 10, 17:26)) {
     ))
 
   for (i in col_indexes[-1]) {
-    checkmate::assert_character(
+    prettycheck:::assert_character(
       data[[i]],
       pattern = "^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$"
     )
@@ -199,9 +194,9 @@ tidy_sleep_diary <- function(data, col_indexes = c(1, 8, 10, 17:26)) {
 }
 
 actstudio_sleep_diary <- function(data, file) {
-  checkmate::assert_data_frame(data, min.rows = 1)
-  checkmate::assert_subset(c("sprep", "se"), names(data))
-  checkmate::assert_string(file)
+  prettycheck:::assert_data_frame(data, min.rows = 1)
+  prettycheck:::assert_subset(c("sprep", "se"), names(data))
+  prettycheck:::assert_string(file)
   rutils:::require_pkg("readr", "utils")
 
   ## R CMD Check variable bindings fix (see <https://bit.ly/3z24hbU>)
@@ -221,8 +216,8 @@ actstudio_sleep_diary <- function(data, file) {
 }
 
 sleep_quality <- function(data, col_index = 14) {
-  checkmate::assert_tibble(data, min.rows = 1)
-  checkmate::assert_integerish(col_index, len = 1)
+  prettycheck:::assert_tibble(data, min.rows = 1)
+  prettycheck:::assert_integerish(col_index, len = 1)
   rutils:::require_pkg("ggplot2")
 
   # R CMD Check variable bindings fix (see: http://bit.ly/3bliuam) -----

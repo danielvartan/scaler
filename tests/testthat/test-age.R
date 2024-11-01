@@ -24,17 +24,17 @@ test_that("age() | vector test", {
 })
 
 test_that("age() | error test", {
-  # checkmate::assert_date(birth_date)
+  # prettycheck:::assert_date(birth_date)
   age(birth_date = 1, reference_date = base::Sys.Date(), round = FALSE) %>%
     expect_error("Assertion on 'birth_date' failed")
 
-  # checkmate::assert_multi_class(reference_date, c("Date", "POSIXt"))
+  # prettycheck:::assert_multi_class(reference_date, c("Date", "POSIXt"))
   age(
     birth_date = as.Date("2020-01-01"), reference_date = 1, round = FALSE
   ) %>%
     expect_error("Assertion on 'reference_date' failed")
 
-  # checkmate::assert_flag(round)
+  # prettycheck:::assert_flag(round)
   age(
     birth_date = as.Date("2020-01-01"), reference_date = base::Sys.Date(),
     round = 1

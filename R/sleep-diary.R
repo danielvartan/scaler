@@ -90,11 +90,9 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
     ) |>
     dplyr::arrange(subjective_day) |>
     dplyr::select(subjective_day, type_of_day) |>
-    tsibble::as_tsibble(
-      index = "subjective_day",
-      regular = TRUE
-    ) |>
-    tsibble::fill_gaps()
+    tidyr::complete(
+      subjective_day = tidyr::full_seq(subjective_day, 1)
+    )
 
   invisible(out)
 }

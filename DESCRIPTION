@@ -28,8 +28,7 @@ Imports:
     mctq (>= 0.3.2),
     prettycheck,
     rutils,
-    tidyr (>= 1.3.1),
-    tsibble (>= 1.1.5)
+    tidyr (>= 1.3.1)
 Suggests: 
     checkmate (>= 2.3.2),
     covr (>= 3.6.4),

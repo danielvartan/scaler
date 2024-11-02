@@ -1,5 +1,3 @@
-placeholder <- function() message("Hello")
-
 pretty_num <- function(x, big_mark = ".", decimal_mark = ",") {
   x %>%
     round(digits = 3) %>%

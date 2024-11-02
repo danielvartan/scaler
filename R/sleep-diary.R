@@ -89,12 +89,17 @@ get_sleep_diary_type_of_day <- function(data, col_indexes = c(1, 4, 8, 10)) {
           duplicated(subjective_day, fromLast = TRUE))
     ) |>
     dplyr::arrange(subjective_day) |>
-    dplyr::select(subjective_day, type_of_day) |>
-    tidyr::complete(
-      subjective_day = tidyr::full_seq(subjective_day, 1)
-    )
+    dplyr::select(subjective_day, type_of_day)
 
-  invisible(out)
+  if (nrow(out) > 1) {
+    out <-
+      out |>
+      tidyr::complete(
+        subjective_day = tidyr::full_seq(subjective_day, 1)
+      )
+  }
+
+  out
 }
 
 tidy_sleep_diary <- function(data, col_indexes = c(1, 8, 10, 17:26)) {
@@ -189,7 +194,7 @@ tidy_sleep_diary <- function(data, col_indexes = c(1, 8, 10, 17:26)) {
     dplyr::bind_rows(binder) |>
     dplyr::arrange(timestamp)
 
-  invisible(out)
+  out
 }
 
 actstudio_sleep_diary <- function(data, file) {
@@ -211,7 +216,7 @@ actstudio_sleep_diary <- function(data, file) {
 
   readr::write_csv2(out, file, na = "")
 
-  invisible(out)
+  out
 }
 
 sleep_quality <- function(data, col_index = 14) {
